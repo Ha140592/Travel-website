@@ -1,241 +1,838 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Page</title>
+    <title>Vietnamtravel</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Source+Sans+Pro&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="/assets/Vietnam Travel.png" type="image/gif" sizes="16x16">
+
 </head>
+
 <body>
-    <!-- Start header -->
-    <nav class="navbar">
-        <!-- Start logo -->
-        <div class="navbar-brand">
-            <img src="/assets/Vietnam Travel.png" alt="logo" id="logo">
-        </div>
-        <!-- End logo -->
-        <!-- Start navbar-menu -->
-        <div class="navbar-menu">
-            <div class="navbar-start">
-                <a class="navbar-item"><strong>Home</strong></a>
+    <div id="main">
+        <!-- Start header -->
+        <nav class="navbar">
+            <!-- Start logo -->
+            <div class="navbar-brand">
+                <img src="/assets/Vietnam Travel.png" alt="logo" id="logo">
+            </div>
+            <!-- End logo -->
+            <!-- Start navbar-menu -->
+            <div class="navbar-menu">
+                <div class="navbar-start">
+                    <a class="navbar-item"><strong>Home</strong></a>
 
-                <div class="navbar-item has-dropdown is-hoverable">
-                    <a class="navbar-link">
-                        <strong>Place to go</strong>
-                    </a>
-                    <div class="navbar-dropdown">
-                        <a class="navbar-item" href="#north-vn">North Vietnam</a>
-                        <a class="navbar-item" href="#center-vn">Center Vietnam</a>
-                        <a class="navbar-item" href="#south-vn">South Vietnam</a>
+                    <div class="navbar-item has-dropdown is-hoverable">
+                        <a class="navbar-link">
+                            <strong>Place to go</strong>
+                        </a>
+                        <div class="navbar-dropdown">
+                            <a class="navbar-item" href="#north-vn">North Vietnam</a>
+                            <a class="navbar-item" href="#center-vn">Center Vietnam</a>
+                            <a class="navbar-item" href="#south-vn">South Vietnam</a>
+                        </div>
+                    </div>
+
+                    <div class="navbar-item has-dropdown is-hoverable">
+                        <a class="navbar-link">
+                            <strong>Travel Style</strong>
+                        </a>
+                        <div class="navbar-dropdown">
+                            <a class="navbar-item" href="#bearch">Bearch</a>
+                            <a class="navbar-item" href="#cultural">Culture</a>
+                            <a class="navbar-item" href="#adventure">Adventure</a>
+                            <a class="navbar-item" href="#food">Food & Culinary</a>
+                            <a class="navbar-item" href="#luxury">Luxury</a>
+                            <a class="navbar-item" href="#discovery">Discovery</a>
+                        </div>
                     </div>
                 </div>
-
-                <div class="navbar-item has-dropdown is-hoverable">
-                    <a class="navbar-link">
-                        <strong>Travel Style</strong>
-                    </a>
-                    <div class="navbar-dropdown">
-                        <a class="navbar-item" href="#bearch">Bearch</a>
-                        <a class="navbar-item" href="#cultural">Culture</a>
-                        <a class="navbar-item" href="#adventure">Adventure</a>
-                        <a class="navbar-item" href="#food">Food & Culinary</a>
-                        <a class="navbar-item" href="#luxury">Luxury</a>
-                        <a class="navbar-item" href="#discovery">Discovery</a>
+                <!-- Start login-btn -->
+                <div class="navbar-end">
+                    <div class="navbar-item">
+                        <div class="buttons">
+                            <a class="button is-light" id="signUp-btn">
+                                <strong>Sign up</strong>
+                            </a>
+                            <a class="button is-light" id="login-btn">
+                                <strong>Log in</strong>
+                            </a>
+                            <a class="button is-light" id="mypage-btn">
+                                <strong>My Page</strong>
+                            </a>
+                            <a class="button is-light" id="logout-btn">
+                                <strong>Log out</strong>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- End login-btn -->
+            </div>
+            <!-- End navbar-menu -->
+        </nav>
+        <!-- Begin Login section -->
+        <!--  Login form -->
+        <div id="login-form" class="modal">
+            <div class="modal-background"></div>
+            <div class="modal-card">
+                <header class="modal-card-head">
+                    <p class="modal-card-title">Login</p>
+                    <button class="delete" id="xLogin-btn" aria-label="close"></button>
+                </header>
+                <section class="modal-card-body">
+                    <div class="field">
+                        <label class="label">Username</label>
+                        <div class="control">
+                            <input class="input" id="login-username" type="username" placeholder="Username">
+                        </div>
+                        <div>
+                            <p id="user-login-err" style="color:red"></p>     
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Password</label>
+                        <div class="control">
+                            <input class="input" id="login-password" type="password" placeholder="********">
+                        </div>
+                        <div>
+                            <p id="pw-login-err" style="color:red"></p>     
+                        </div>
+                    </div>
+                </section>
+                <footer class="modal-card-foot">
+                    <button class="button is-light" id="submit-login">Login</button>
+                    <button class="button" id="cancelLogin-btn">Cancel</button>
+                </footer>
+            </div>
+        </div>
+        <!--Begin Login notice -->
+        <div id="login-notice" class="modal">
+            <div class="modal-card" id="modal-notice">
+                <section class="modal-card-body">
+                    <div class="field">
+                        <p id="notice-text" class="label">Sign up success!</p>
+                    </div>
+                </section>
+                <footer class="modal-card-foot">
+                    <button class="button is-light" id="success-btn">OK</button>
+                </footer>
+            </div>
+        </div>
+        <!--End Login notice -->
+        <!-- End Login section -->
+        <!-- Begin Signup section -->
+        <div id="signUp-form" class="modal">
+            <div class="modal-background"></div>
+            <div class="modal-card">
+                <header class="modal-card-head">
+                    <p class="modal-card-title">Sign up</p>
+                    <button class="delete" id="xSignUp-btn" aria-label="close"></button>
+                </header>
+                <section class="modal-card-body">
+                    <div class="field">
+                        <label class="label">Username<span style="color:red">*</label>
+                        <div class="control">
+                            <input class="input" id="username" type="username" placeholder="Username">
+                        </div>
+                        <div >
+                            <p id="username-err" style="color:red"></p>     
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Password<span style="color:red">*</span></label>
+                        <div class="control">
+                            <input class="input" id="password" type="password" placeholder="********">
+                        </div>
+                        <div>  
+                            <p id="password-err" style="color:red"></p>                   
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Email Address<span style="color:red">*</label>
+                        <div class="control">
+                            <input class="input" id="email" type="email" placeholder="e.g. alex@example.com">
+                        </div>
+                        <div>  
+                            <p id="email-err" style="color:red"></p>                                             
+                        </div>
+                    </div>
+                </section>
+                <footer class="modal-card-foot">
+                    <button class="button is-light" id="submit-user">Sign up</button>
+                    <button class="button" id="cancelSignUp-btn">Cancel</button>
+                </footer>
+            </div>
+        </div>
+        <!-- End Signup section -->
+        <!-- Begin Banner -->
+        <div id="banner" style="padding-top: 1em;">
+            <div class="text-banner">
+                <h1>Vietnam Private & Guided Tours</h1>
+                <p>Smart Choice for Savvy Travellers</p>
+            </div>
+            <div class="input-banner" id="searchWrapper">
+                <input class="input is-medium" id="searchBar" type="text" placeholder="where do you want to go?"
+                    style="position: relative;">
+                <div class="modal" id="locationModal" style="position: absolute; top: 61%;">
+                    <div class="modal-card">
+                        <section class="modal-card-body">
+                            <ul id="locationsList"></ul>
+                        </section>
                     </div>
                 </div>
             </div>
-            <!-- Start login-btn -->
-            <div class="navbar-end">
-                <div class="navbar-item">
-                    <div class="buttons">
-                        <a class="button is-light" id="signUp-btn">
-                            <strong>Sign up</strong>
-                        </a>
-                        <a class="button is-light" id="login-btn">
-                            <strong>Log in</strong>
-                        </a>
-                        <a class="button is-light" id="mypage-btn">
-                            <strong>My Page</strong>
-                        </a>
-                        <a class="button is-light" id="logout-btn">
-                            <strong>Log out</strong>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <!-- End login-btn -->
         </div>
-        <!-- End navbar-menu -->
-    </nav>
+    </div>
+
+    <!-- End Banner -->
     <!-- End header -->
-    <div id="login-form" class="modal">
-        <div class="modal-background"></div>
-        <div class="modal-card">
-            <header class="modal-card-head">
-                <p class="modal-card-title">Login</p>
-                <button class="delete" id="xLogin-btn" aria-label="close"></button>
-            </header>
-            <section class="modal-card-body">
-                <div class="field">
-                    <label class="label">Username</label>
-                    <div class="control">
-                        <input class="input" id="login-username" type="username" placeholder="Username">
+    <!-- Begin-content -->
+    <div id="content">
+        <!-- Begin North Vietnam -->
+        <section id="slideSec">
+            <div class="container has-text-centered p-b-25">
+                <div class="column is-8 is-offset-2">
+                    <h2 class="title">PLACES TO GO</h2>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                        been
+                        the industry's</p>
+                </div>
+            </div>
+            <div class="container slideshowContainer mySlides" id="north-vn">
+                <div class="text">North</div>
+                <div class="columns">
+                    <div class="column is-4">
+                        <div class="card">
+                            <div class="card-image">
+                                <figure class="image is-4by3">
+                                    <img src="https://vietnam.travel/sites/default/files/inline-images/One%20Pillar%20Pagoda%20Hanoi.jpg"
+                                        alt="HN">
+                                    <div class="middle">
+                                        <div class="text">More</div>
+                                    </div>
+                                </figure>
+                                <div class="packages-caption">
+                                    <div class="vertical-align has-background-white">
+                                        <a href="/Place to go/index.html">HA NOI</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column is-4">
+                        <div class="card">
+                            <div class="card-image">
+                                <figure class="image is-4by3">
+                                    <img src="https://vietnam.travel/sites/default/files/styles/article_photo_large/public/2021-05/Nho%20Que%20river%20Vietnam%20Tourism.jpg?itok=o2vWqGcv"
+                                        alt="HN">
+                                    <div class="middle">
+                                        <div class="text">More</div>
+                                    </div>
+                                </figure>
+                                <div class="packages-caption">
+                                    <div class="vertical-align has-background-white">
+                                        <a href="">HA GIANG</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column is-4">
+                        <div class="card">
+                            <div class="card-image">
+                                <figure class="image is-4by3">
+                                    <img src="https://vietnam.travel/sites/default/files/inline-images/Seaplane%20on%20Ha%20Long%20Bay.jpg"
+                                        alt="HN">
+                                    <div class="middle">
+                                        <div class="text">More</div>
+                                    </div>
+                                </figure>
+                                <div class="packages-caption">
+                                    <div class="vertical-align has-background-white">
+                                        <a href="">HA LONG</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="field">
-                    <label class="label">Password</label>
-                    <div class="control">
-                        <input class="input" id="login-password" type="password" placeholder="********">
+                <div class="columns">
+                    <div class="column is-4">
+                        <div class="card">
+                            <div class="card-image">
+                                <figure class="image is-4by3">
+                                    <img src="https://vietnam.travel/sites/default/files/styles/article_photo_large/public/2019-01/Mai%20Chau%20Vietnam%20Travel-8.jpg?itok=id4uluE6"
+                                        alt="HN">
+                                    <div class="middle">
+                                        <div class="text">More</div>
+                                    </div>
+                                </figure>
+                                <div class="packages-caption">
+                                    <div class="vertical-align has-background-white">
+                                        <a href="">MAI CHAU</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column is-4">
+                        <div class="card">
+                            <div class="card-image">
+                                <figure class="image is-4by3">
+                                    <img src="https://vietnam.travel/sites/default/files/styles/article_photo_large/public/2019-01/Ninh%20Binh%20Vietnam%20Travel-10.jpg?itok=FTWCXx0a"
+                                        alt="HN">
+                                    <div class="middle">
+                                        <div class="text">More</div>
+                                    </div>
+                                </figure>
+                                <div class="packages-caption">
+                                    <div class="vertical-align has-background-white">
+                                        <a href="">NINH BINH</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column is-4">
+                        <div class="card">
+                            <div class="card-image">
+                                <figure class="image is-4by3">
+                                    <img src="https://vietnam.travel/sites/default/files/styles/article_photo_large/public/2021-05/Herbal%20Bath%20Sapa%20Vietnam.jpg?itok=jfjRYmBL"
+                                        alt="HN">
+                                    <div class="middle">
+                                        <div class="text">More</div>
+                                    </div>
+                                </figure>
+                                <div class="packages-caption">
+                                    <div class="vertical-align has-background-white">
+                                        <a href="">SAPA</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </section>
-            <footer class="modal-card-foot">
-                <button class="button is-light" id="submit-login">Login</button>
-                <button class="button" id="cancelLogin-btn">Cancel</button>
-            </footer>
-        </div>
-    </div>
-    <!-- Begin avatar section -->
-    <div class="avatar-section">
-        <div class="avatar-image">
-            <figure class="image is-128x128">
-                <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png">
-              </figure>
-        </div>
-        <div class="avatar-name">
-            <p id="username-mypage">Username</p>
-        </div>
-        <div class="tab">
-            <a class="button is-light" id="myAccount-btn">
-                <strong>My Account</strong>
-            </a>
-            <a class="button is-light" id="myPlace-btn">
-                <strong>My Favorite Places</strong>
-            </a>
-        </div>
-    </div>
-    <!-- End avatar section -->
-    <!--Begin Login notice -->
-    <div id="logout-notice" class="modal">
-        <div class="modal-card" id="modal-notice">
-            <section class="modal-card-body">
-                <div class="field">
-                    <p id="notice-text" class="label">Logout success!</p>
-                </div>
-            </section>
-            <footer class="modal-card-foot">
-                <button class="button is-light" id="success-btn">OK</button>
-            </footer>
-        </div>
-    </div>
-    <!--End Login notice -->
-    <!-- Begin content -->
-    <div class="my-account" id="myAccount">
-        <div class="my-account-username">
-            <p id="myaccount-username">Username:</p>
-            <a class="button is-light is-small" id="change-username-btn">
-                Change username
-            </a>
-        </div>
-        <div class="my-account-email"id="change-email-btn">
-            <p id="myaccount-email">Email address:</p>
-            <!-- <a class="button is-light is-small">
-                Change email address
-            </a> -->
-        </div>
-    </div>
-    <div id="myPlace">
-        <div class="card">
-            <div class="card-image">
-              <figure class="image is-4by3">
-                <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
-              </figure>
             </div>
-            <div class="card-content">
-              <div class="content">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Phasellus nec iaculis mauris. <a>@bulmaio</a>.
-                <a href="#">#css</a> <a href="#">#responsive</a>
-                <br>
-                <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
-              </div>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-image">
-              <figure class="image is-4by3">
-                <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
-              </figure>
-            </div>
-            <div class="card-content">
-              <div class="content">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Phasellus nec iaculis mauris. <a>@bulmaio</a>.
-                <a href="#">#css</a> <a href="#">#responsive</a>
-                <br>
-                <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
-              </div>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-image">
-              <figure class="image is-4by3">
-                <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
-              </figure>
-            </div>
-            <div class="card-content">
-              <div class="content">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Phasellus nec iaculis mauris. <a>@bulmaio</a>.
-                <a href="#">#css</a> <a href="#">#responsive</a>
-                <br>
-                <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
-              </div>
-            </div>
-        </div>
-    </div>
-    <!-- End content -->
-    <!-- Begin modals -->
-    <div id="change username-form" class="modal">
-        <div class="modal-background"></div>
-        <div class="modal-card">
-            <header class="modal-card-head">
-                <p class="modal-card-title">Change username</p>
-                <button class="delete" id="close-btn" aria-label="close"></button>
-            </header>
-            <section class="modal-card-body">
-                <div class="field">
-                    <label class="label">New username</label>
-                    <div class="control">
-                        <input class="input" id="change-username" type="username" placeholder="Input new username">
+
+            <div class="container mySlides " id="center-vn">
+                <div class="text">Central</div>
+                <div class="columns">
+                    <div class="column is-4">
+                        <div class="card">
+                            <div class="card-image">
+                                <figure class="image is-4by3">
+                                    <img src="https://vietnam.travel/sites/default/files/styles/top_banner/public/2021-05/things%20to%20do%20in%20Da%20Nang.jpg?itok=ZW-O1B_9"
+                                        alt="Da Nang">
+                                    <div class="middle">
+                                        <div class="text">More</div>
+                                    </div>
+                                </figure>
+                                <div class="packages-caption">
+                                    <div class="vertical-align has-background-white">
+                                        <a href="">DA NANG</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div>
-                        <p id="new-username-err" style="color:red"></p>     
+                    <div class="column is-4">
+                        <div class="card">
+                            <div class="card-image">
+                                <figure class="image is-4by3">
+                                    <img src="https://vietnam.travel/sites/default/files/styles/top_banner/public/2020-04/What%20to%20do%20in%20Dalat-10.jpg?itok=j9yJc_hL"
+                                        alt="Da Lat">
+                                    <div class="middle">
+                                        <div class="text">More</div>
+                                    </div>
+                                </figure>
+                                <div class="packages-caption">
+                                    <div class="vertical-align has-background-white">
+                                        <a href="">DA LAT</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column is-4">
+                        <div class="card">
+                            <div class="card-image">
+                                <figure class="image is-4by3">
+                                    <img src="https://360nomad.org/wp-content/uploads/2018/08/Hoi-An-Ancient-Town-boats.jpg"
+                                        alt="Hoi An">
+                                    <div class="middle">
+                                        <div class="text">More</div>
+                                    </div>
+                                </figure>
+                                <div class="packages-caption">
+                                    <div class="vertical-align has-background-white">
+                                        <a href="">HOI AN</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="field">
-                    <label class="label">Confirm new username</label>
-                    <div class="control">
-                        <input class="input" id="confirm-username" type="username" placeholder="Confirm new username">
+                <div class="columns">
+                    <div class="column is-4">
+                        <div class="card">
+                            <div class="card-image">
+                                <figure class="image is-4by3">
+                                    <img src="https://vietnam.travel/sites/default/files/styles/top_banner/public/2021-05/Hue%20Travel%20Guide%20Vietnam%20Tourism_0.jpg?itok=0sc4Eg6k"
+                                        alt="Hue">
+                                    <div class="middle">
+                                        <div class="text">More</div>
+                                    </div>
+                                </figure>
+                                <div class="packages-caption">
+                                    <div class="vertical-align has-background-white">
+                                        <a href="">HUE</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div>
-                        <p id="confirm-username-err" style="color:red"></p>     
+                    <div class="column is-4">
+                        <div class="card">
+                            <div class="card-image">
+                                <figure class="image is-4by3">
+                                    <img src="https://vietnam.travel/sites/default/files/inline-images/things%20to%20do%20in%20nha%20trang-5.jpg"
+                                        alt="Nha Trang">
+                                    <div class="middle">
+                                        <div class="text">More</div>
+                                    </div>
+                                </figure>
+                                <div class="packages-caption">
+                                    <div class="vertical-align has-background-white">
+                                        <a href="">NHA TRANG</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column is-4">
+                        <div class="card">
+                            <div class="card-image">
+                                <figure class="image is-4by3">
+                                    <img src="https://vietnam.travel/sites/default/files/styles/article_photo_large/public/2017-11/things%20to%20do%20in%20phong%20nha-6.jpg?itok=2ibNdz2l"
+                                        alt="Phong Nha">
+                                    <div class="middle">
+                                        <div class="text">More</div>
+                                    </div>
+                                </figure>
+                                <div class="packages-caption">
+                                    <div class="vertical-align has-background-white">
+                                        <a href="">PHONG NHA</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </section>
-            <footer class="modal-card-foot">
-                <button class="button is-light" id="submit-change">Submit</button>
-                <button class="button" id="cancel-change-btn">Cancel</button>
-            </footer>
-        </div>
+            </div>
+
+            <div class="container mySlides " id="south-vn">
+                <div class="text">South</div>
+                <div class="columns">
+                    <div class="column is-4">
+                        <div class="card">
+                            <div class="card-image">
+                                <figure class="image is-4by3">
+                                    <img src="https://vietnam.travel/sites/default/files/inline-images/1016%20AJS%20Vietnam%20TAB%20Ho%20Chi%20Minh%20City-27.jpg"
+                                        alt="Sai Gon">
+                                    <div class="middle">
+                                        <div class="text">More</div>
+                                    </div>
+                                </figure>
+                                <div class="packages-caption">
+                                    <div class="vertical-align has-background-white">
+                                        <a href="">SAI GON</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column is-4">
+                        <div class="card">
+                            <div class="card-image">
+                                <figure class="image is-4by3">
+                                    <img src="https://vietnam.travel/sites/default/files/styles/article_photo_large/public/2019-01/Con%20Dao%20Vietnam%20Travel-3.jpg?itok=ddyW1b4-"
+                                        alt="Con Dao">
+                                    <div class="middle">
+                                        <div class="text">More</div>
+                                    </div>
+                                </figure>
+                                <div class="packages-caption">
+                                    <div class="vertical-align has-background-white">
+                                        <a href="">CON DAO</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column is-4">
+                        <div class="card">
+                            <div class="card-image">
+                                <figure class="image is-4by3">
+                                    <img src="https://vietnam.travel/sites/default/files/styles/article_photo_large/public/2021-05/Red%20Sand%20Dunes%20Mui%20Ne%20Vietnam.jpg?itok=pkbEB3ek"
+                                        alt="Mui Ne">
+                                    <div class="middle">
+                                        <div class="text">More</div>
+                                    </div>
+                                </figure>
+                                <div class="packages-caption">
+                                    <div class="vertical-align has-background-white">
+                                        <a href="">MUI NE</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="columns">
+                    <div class="column is-4">
+                        <div class="card">
+                            <div class="card-image">
+                                <figure class="image is-4by3">
+                                    <img src="https://vietnam.travel/sites/default/files/styles/article_photo_large/public/2021-05/Can%20Tho%20Floating%20Markets%20Vietnam%20Tourism.jpg?itok=jUzAHw_w"
+                                        alt="Can Tho">
+                                    <div class="middle">
+                                        <div class="text">More</div>
+                                    </div>
+                                </figure>
+                                <div class="packages-caption">
+                                    <div class="vertical-align has-background-white">
+                                        <a href="">CAN THO</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column is-4">
+                        <div class="card">
+                            <div class="card-image">
+                                <figure class="image is-4by3">
+                                    <img src="https://vietnam.travel/sites/default/files/styles/article_photo_large/public/2021-05/Ba%20Chua%20Xu%20Temple%20Vietnam%20Tourism.jpg?itok=2UeahfdX"
+                                        alt="Chau Doc">
+                                    <div class="middle">
+                                        <div class="text">More</div>
+                                    </div>
+                                </figure>
+                                <div class="packages-caption">
+                                    <div class="vertical-align has-background-white">
+                                        <a href="">CHAU DOC</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column is-4">
+                        <div class="card">
+                            <div class="card-image">
+                                <figure class="image is-4by3">
+                                    <img src="https://vietnam.travel/sites/default/files/styles/article_photo_large/public/2019-01/Phu%20Quoc%20Vietnam%20Travel-3.jpg?itok=N1qm-ltH"
+                                        alt="Phu Quoc">
+                                    <div class="middle">
+                                        <div class="text">More</div>
+                                    </div>
+                                </figure>
+                                <div class="packages-caption">
+                                    <div class="vertical-align has-background-white">
+                                        <a href="">PHU QUOC</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <nav>
+                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            </nav>
+
+            <div id="dotContainer" style="text-align:center">
+                <span class="dot" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+                <span class="dot" onclick="currentSlide(3)"></span>
+            </div>
+        </section>
     </div>
-    <!-- End modals -->
+
+
+
+
+
+
+    <br><br>
+    <!-- End South Vietnam -->
+    <!-- Begin Travel style -->
+    <div id="travel-style">
+        <div class="container has-text-centered p-b-25">
+            <div class="column is-8 is-offset-2">
+                <h2 class="title">TRAVEL STYLE</h2>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                    been the industry's</p>
+            </div>
+        </div>
+        <div class="slider-list">
+            <div class="container">
+                <div class="columns">
+                    <div class="column is-6">
+                        <div class="card">
+                            <div class="card-image">
+                                <div class="image is-2by1">
+                                    <figure>
+                                        <img src="https://beach.vn/wp-content/uploads/2020/06/ccimage-shutterstock_286439354.jpg"
+                                            alt="">
+                                    </figure>
+                                    <div class="packages-caption">
+                                        <div class="vertical-align has-background-white">
+                                            <a href="#beach">BEACH</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column is-3">
+                        <div class="card">
+                            <div class="card-image">
+                                <div class="image is-1by1">
+                                    <figure>
+                                        <img src="https://vietnam.travel/sites/default/files/styles/large/public/2021-05/Thang%20Long%20citadel%20travel%20guide_0.jpg?itok=srg7Tj4t"
+                                            alt="">
+                                    </figure>
+                                    <div class="packages-caption">
+                                        <div class="vertical-align has-background-white">
+                                            <a href="#beach">CUTURAL</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column is-3">
+                        <div class="card">
+                            <div class="card-image">
+                                <div class="image is-1by1">
+                                    <figure>
+                                        <img src="https://vietnam.travel/sites/default/files/styles/large/public/2020-05/best%20coffee%20houses%20vietnam.jpg?itok=d4dIZqfB"
+                                            alt="">
+                                    </figure>
+                                    <div class="packages-caption">
+                                        <div class="vertical-align has-background-white">
+                                            <a href="#beach">LUXURY</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="columns">
+                    <div class="column is-3">
+                        <div class="card">
+                            <div class="card-image">
+                                <div class="image is-1by1">
+                                    <figure>
+                                        <img src="https://vietnam.travel/sites/default/files/styles/large/public/2021-02/fish%20sauce%20vietnamese%20cooking_0.jpg?itok=e7WTIJcs"
+                                            alt="">
+                                    </figure>
+                                    <div class="packages-caption">
+                                        <div class="vertical-align has-background-white">
+                                            <a href="#beach">FOOD</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column is-6">
+                        <div class="card">
+                            <div class="card-image">
+                                <div class="image is-2by1">
+                                    <figure>
+                                        <img src="https://vietnam.travel/sites/default/files/styles/top_banner/public/2021-05/Adventure%20travels%20in%20Vietnam.jpg?itok=YNRtFQLB"
+                                            alt="">
+                                    </figure>
+                                    <div class="packages-caption">
+                                        <div class="vertical-align has-background-white">
+                                            <a href="#beach">ADVENTURE</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column is-3">
+                        <div class="card">
+                            <div class="card-image">
+                                <div class="image is-1by1">
+                                    <figure>
+                                        <img src="https://vietnam.travel/sites/default/files/styles/large/public/2021-02/Vietnam%20Rice%20terraces_-2.jpg?itok=oRefmx2L"
+                                            alt="">
+                                    </figure>
+                                    <div class="packages-caption">
+                                        <div class="vertical-align has-background-white">
+                                            <a href="#beach">DISCOVERY</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Travel style -->
+        <!-- Begin Enjoy Video -->
+        <br><br>
+        <section class="hero is-large">
+            <iframe width="auto" height="720" src="https://www.youtube.com/embed/DIgv-e18OzA?autoplay=1&mute=1"
+                title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+        </section>
+        <!-- End Enjoy Video -->
+        <!-- Begin Feedback -->
+        <div id="feedback">
+            <div class="feedback-content">
+                <div class="feedback-user has-text-centered">
+                    <figure class="image is-128x128 is-inline-block">
+                        <img class="is-rounded"
+                            src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80"
+                            alt="img">
+                    </figure>
+                    <p class="feedback-description">'I can’t say what made me fall in love with Vietnam – that a
+                        woman’s
+                        voice can drug you; that everything is so intense.'
+                    </p>
+                </div>
+                <div class="feedback-user has-text-centered">
+                    <figure class="image is-128x128 is-inline-block">
+                        <img class="is-rounded"
+                            src="https://images.unsplash.com/photo-1567336273898-ebbf9eb3c3bf?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=972&q=80"
+                            alt="img">
+                    </figure>
+                    <p class="feedback-description">'I can’t say what made me fall in love with Vietnam – that a
+                        woman’s
+                        voice can drug you; that everything is so intense.'
+                    </p>
+                </div>
+                <div class="feedback-user has-text-centered">
+                    <figure class="image is-128x128 is-inline-block">
+                        <img class="is-rounded"
+                            src="https://images.unsplash.com/photo-1610216705422-caa3fcb6d158?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80"
+                            alt="img">
+                    </figure>
+                    <p class="feedback-description">'I can’t say what made me fall in love with Vietnam – that a
+                        woman’s
+                        voice can drug you; that everything is so intense.'
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="display-dot">
+            <span class="dot-feedback"></span>
+            <span class="dot-feedback"></span>
+            <span class="dot-feedback"></span>
+        </div>
+        <!-- End Feedback -->
+        <!-- Begin Promotion -->
+        <section id="counter-section"
+            style="background-image:url('https://wallpaperaccess.com/full/201088.jpg');background-repeat:no-repeat;background-attachment:fixed;background-size:cover;">
+            <div class="counter-container">
+                <div class="columns level">
+                    <div class="column is-size-3 level-item" id="column"><img
+                            src="https://bulma.style/travel/dist/img/icon-map.png" alt="" class="icon-info">
+                        <div class="has-text-centered text-item">
+                            <p class="title has-text-primary">179</p>
+                            <p class="heading has-text-white">DESTINATIONS</p>
+                        </div>
+                    </div>
+                    <div class="column is-size-3 level-item" id="column"><img
+                            src="https://bulma.style/travel/dist/img/icon-box.png" alt="" class="icon-info">
+                        <div class="has-text-centered text-item">
+                            <p class="title has-text-primary">48</p>
+                            <p class="heading has-text-white">TOUR PACK</p>
+                        </div>
+                    </div>
+                    <div class="column is-size-3 level-item" id="column"><img
+                            src="https://bulma.style/travel/dist/img/icon-smile.png" alt="" class="icon-info">
+                        <div class="has-text-centered text-item">
+                            <p class="title has-text-primary">483</p>
+                            <p class="heading has-text-white">HAPPY CLIENTS</p>
+                        </div>
+                    </div>
+                    <div class="column level-item" id="column"><img
+                            src="https://bulma.style/travel/dist/img/icon-phone.png" alt="" class="icon-info">
+                        <div class="has-text-centered text-item">
+                            <p class="title has-text-primary">483</p>
+                            <p class="heading has-text-white">HOURS SUPPORT</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End Promotion -->
+    </div>
+    <!-- End-content -->
+    <!-- Begin Footer -->
+    <footer class="footer">
+        <!-- Begin footer content -->
+        <!-- Begin socials -->
+        <div class="footer-content">
+            <div id="socials">
+                <div class="logo-footer">
+                    <img src="/assets/Vietnam Travel.png" alt="logo" width="150">
+                </div>
+                <div class="socials-list">
+                    <p>FOLLOW US ON</p>
+                    <a href=""><img src="https://img.icons8.com/fluent/48/000000/facebook-new.png" /></a>
+                    <a href=""><img src="https://img.icons8.com/fluent/48/000000/instagram-new.png" /></a>
+                    <a href=""><img src="https://img.icons8.com/color/48/000000/youtube--v1.png" /></a>
+                </div>
+            </div>
+            <!-- End socials -->
+            <div class="footer-link"><strong>Useful Links</strong>
+                <p><a>Blog</a></p>
+                <p><a>Contact</a></p>
+                <p><a>Home</a></p>
+                <p><a>About</a></p>
+                <p><a>Terms & Conditions</a></p>
+            </div>
+            <div class="footer-contact"><strong>Contact us</strong>
+                <p>Address:</p>
+                <p>42 Đường Phạm Hùng Phường Mễ Trì, Từ Liêm, Hà Nội</p>
+                <p>Phone number: 0886-440-194</p>
+                <p>Email: viettravel@gmail.com</p>
+            </div>
+            <div class="footer-subcribe"><strong>Subcribe us!<strong>
+                        <div>
+                            <input class="input is-light is-small" type="text" placeholder="Your email">
+                            <button class="button is-light is-small">Submit</button>
+                        </div>
+            </div>
+        </div>
+        <!-- End footer content -->
+        <div id="footer-bottom">
+            <p><i>Copywright @2021. All Right Reserved</i></p>
+        </div>
+    </footer>
+    <!-- End Footer -->
+    </div>
+
     <script src="app.js"></script>
 </body>
+
 </html>
