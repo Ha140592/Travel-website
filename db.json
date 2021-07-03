@@ -12,5 +12,13 @@
       "content": "Wow such content!",
       "username": "zero_cool"
     }
+  ],
+  "users": [
+    {
+      "id": 0,
+      "username": "Ha",
+      "password": "12345678",
+      "email": "ngocha.mac@gmail.com"
+    }
   ]
 }
