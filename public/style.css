@@ -1,0 +1,316 @@
+/* Slide show */
+#slideSec{
+    background: url(https://vietnam.travel/themes/custom/vietnamtourism/images/bg-home-inspire.jpg) top no-repeat;
+    background-size: cover;
+  }
+  a{
+    color: #14213d;
+  }
+  a:hover{
+    color: #fca311;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  .packages-caption .vertical-align{
+    position: absolute;
+    top: 80%;
+    right: auto;
+    padding: 6px 15px;
+    color: #fff;
+    font-weight: bold;
+    font-size: 20px;
+    border-bottom-right-radius: 4px;
+    border-top-right-radius: 4px;
+  }
+  #dotContainer{
+    padding: 10px;
+  }
+  .dot {
+      cursor: pointer;
+      height: 15px;
+      width: 15px;
+      margin: 0 2px;
+      background-color: #bbb;
+      border-radius: 50%;
+      display: inline-block;
+      transition: background-color  0.6s ease;
+    }
+    
+  .active, .dot:hover {
+      background-color: #14213d;
+  }
+  
+  .mySlides {
+      position: relative;
+  }
+  .prev, .next {
+      cursor: pointer;
+      position: absolute;
+      top: 159.5%;
+      width: auto;
+      padding: 16px;
+      margin-top: -22px;
+      color: black;
+      font-weight: bold;
+      font-size: 18px;
+      transition: 0.6s ease;
+      border-radius: 0 3px 3px 0;
+      user-select: none;
+    }  
+    .next {
+      right: 0;
+      border-radius: 3px 0 0 3px;
+    }
+    
+    /* On hover, add a black background color with a little bit see-through */
+    .prev:hover, .next:hover {
+      color: white;
+      background-color: rgba(0,0,0,0.8);
+    }
+    .image {
+      opacity: 1;
+      display: block;
+      width: 100%;
+      height: auto;
+      transition: .5s ease;
+      backface-visibility: hidden;
+    }
+    .middle {
+      color: black;
+      transition: .5s ease;
+      opacity: 0;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      text-align: center;
+    }
+    
+    .card:hover .image {
+      opacity: 0.8;
+    }
+    
+    .card:hover .middle {
+      opacity: 1;
+      cursor: pointer;
+    }
+  
+    .card .text {
+      background-color: #14213d ;
+      color: #fca311;
+      font-size: 16px;
+      padding: 16px 32px;
+    }
+   #column {
+      display: flex;
+  }
+  
+  .icon-info {
+    width: 80px;
+  }
+  
+  #counter-section {
+      background-size: cover;
+      height: 100%;
+      padding-top: 130px;
+      padding-bottom: 120px;
+      text-align: center;
+  }
+  #counter-section .level .title {
+      font-size: 52px;
+      font-weight: bold;
+  }
+  #counter-section .level .heading {
+      font-size: 22px;
+      text-transform: uppercase;
+      font-weight: 500;
+  }
+  .has-text-primary {
+      color: #ffa200 !important;
+  }
+  
+  /* Header */
+    
+    .navbar{
+      width: 100vw;
+      position: fixed;
+      padding-left: 40px;
+      padding-right: 40px;
+    }
+  
+    .navbar #logo {
+      width: 65px;
+   }
+    .navbar-start {
+      flex-grow: 1; 
+      justify-content: center;
+    }
+    
+    .navbar-dropdown {
+      right: 0;
+    }
+    
+    .navbar-item {
+      padding-left: 40px;
+      padding-right: 40px;
+    }
+     /* Banner */
+     #banner {
+       width: 100%;
+       height: 100vh;
+       background: url(https://www.bookaway.com/blog/wp-content/uploads/2019/09/Hoi-An-Vietnam.jpg) no-repeat center;
+       background-size: 100%;
+       display: flex;
+       flex-direction: column;
+       justify-content: center;
+       align-items: center;
+       color: #ffff;
+       margin-bottom: 20px;
+     }
+  
+     #banner .text-banner h1 {
+       font-size: 60px;
+     }
+     #banner .text-banner p {
+       font-size: 20px;
+       text-align: center;
+     }
+  
+     #banner input {
+       width: 50vw;
+       margin-top: 20px;
+       font-family: 'Oswald', sans-serif;
+     }
+  
+     #banner button {
+       margin-top: 20px;
+       font-family: 'Oswald', sans-serif;
+     }
+  
+  
+    /* Feedback */
+  
+    .feedback-content {
+      display: flex;
+      justify-content: space-around;
+      padding:100px;
+    }
+    
+    .feedback-user {
+      padding: 30px;
+    }
+    /* Feedback slideshow */
+    .dot-feedback {
+      height: 15px;
+      width: 15px;
+      margin: 0 2px;
+      background-color: #bbb;
+      border-radius: 50%;
+      display: inline-block;
+      transition: background-color 0.6s ease;
+     }
+    .active {
+      background-color: #717171;
+     }
+    
+    .display-dot {
+      text-align: center;
+      margin-bottom: 50px;
+     }
+      
+    /* Footer */
+    .footer {
+      padding-bottom: 30px;
+    }
+  
+    .socials-list p {
+      font-weight: bold;
+      font-size: 20px;
+    }
+  
+    .footer-content {
+      display: flex;
+      justify-content: space-around;
+    }
+  
+    #footer-bottom {
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-end;
+      padding-right: 80px;
+    }
+  
+    .footer-subcribe {
+      white-space: nowrap;
+    }
+  
+    .footer-contact{
+      max-width: 250px;
+      text-align: justify;
+  
+    }
+    /* Login */
+    #login-form {
+      justify-content: center;
+      align-items: center;
+    }
+  
+    #signUp-form {
+      justify-content: center;
+      align-items: center;
+    }
+  
+    #mypage-btn {
+      display: none;
+    }
+  
+    #logout-btn {
+      display: none;
+    }
+  /* Apperance */
+  body{
+    font-family: 'Oswald', sans-serif;
+  }
+  .button.is-light {
+    background-color: #14213d;
+    border-color: transparent;
+    color: #fff;
+  }
+  .title{
+    color: #fca311;
+  }
+  footer{
+    background-color: #e5e5e5;
+  }
+  /* Search section */
+  #locationsList {
+    padding-inline-start: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-gap: 20px;
+  }
+  ul {
+    color: #14213d;
+  }
+  .modal-card,.modal-content {
+    margin: 0 auto;
+    max-height: calc(100vh - 40px);
+    width: 767px;
+  }
+  #searchLocation:hover{
+    cursor: pointer;
+    color: #fca311;
+  }
+  /* End section */
+  #login-notice {
+    padding-top: 70px;
+  }
+  #modal-notice {
+    width: 400px;
+  }
+  
+  
